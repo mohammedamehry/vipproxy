@@ -107,6 +107,7 @@ app.get('/proxy', async (req, res) => {
 
             // Update content length since we changed the body
             res.setHeader('Content-Length', Buffer.byteLength(rewrittenBody));
+            res.setHeader('Content-Type', 'application/vnd.apple.mpegurl'); // Force HLS MIME type for players like ExoPlayer
             res.send(rewrittenBody);
 
         } else {
