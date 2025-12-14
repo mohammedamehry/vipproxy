@@ -26,7 +26,7 @@ const resolveUrl = (base, relative) => {
     }
 };
 
-app.get('/proxy', async (req, res) => {
+app.get(['/proxy', '/stream.m3u8'], async (req, res) => {
     const { url, ...queryParams } = req.query;
 
     if (!url) {
